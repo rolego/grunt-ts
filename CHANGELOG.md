@@ -2,6 +2,19 @@
 
 ## Next
 
+## v5.1.0
+* FEAT: Upgraded to TypeScript 1.6.2 (thanks to @vp2177 and @JoshuaKGoldberg for sending early PRs, and for @awjreynolds, @Zjaaspoer, @DrColossos, @ravishivt, @logankd, and @Gouigouix for early encouragement.)
+  * Added support for `--moduleResolution`, `--jsx`, `--experimentalAsyncFunctions`, `--suppressExcessPropertyErrors`, `--rootDir`.
+  * Added `outFile` support to `tsconfig.json` (same function as `out`, but always relative to `tsconfig.json` file.)
+  * Support all TypeScript 1.6 features from Visual Studio/MSBuild (via upgrade to csproj2ts v0.0.6).
+* FIX: Fixed bug where `outDir` in `tsconfig.json` was not treated as being relative to the `tsconfig.json` file.
+* FIX: New tests for "HTML" features (Thanks again, @rolego (#297).
+* FIX: Blank `tsconfig.json` should not be an error according to the spec, so this was changed to be same as `{}`.
+* DOCS: New documentation for several "HTML" features - `htmlOutDir` and `htmlOutDirFlatten`.
+
+## v5.0.1 (2015-10-08)
+* FIX: 'htmlOutputTemplate' was not handled.  Thanks for the PR, @rolego (#291).
+
 ## v5.0.0 (2015-10-07)
 Version 5 of grunt-ts represents a major overhaul of the options resolution system.  More than 100 new tests have been added, so this should be the highest quality version of grunt-ts yet.  Also, many integration tests have been rewritten as "heavy unit tests" (meaning they call into grunt-ts from grunt, but don't actually call `tsc`, so they run in ~0.02 sec).  This allows validation of grunt-ts warnings, and assertion of exact command line parameters.  Even though testing quality has gone up *significantly*, the overall time to run `grunt release` on grunt-ts itself has dropped from 184 seconds to 112 seconds - a 64% improvement.
 * FIX: amdloader will now work for [`.tsx` extension as well](https://github.com/TypeStrong/grunt-ts/pull/274)
